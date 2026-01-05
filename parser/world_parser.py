@@ -7,7 +7,7 @@ import math
 from . import common
 import cbor2
 
-item_data = json.load(open("./cache/parsed_data.json"))
+item_data = json.load(open("cache/parsed_data.json"))
 world_info = {}
 
 def get_str() -> str:
@@ -705,7 +705,7 @@ def parse_map_data(data: bytes) -> str:
 
     f =  io.BytesIO(data)
     parse_result = parse_world()
-    f_out = open(f"./cache/worlds/{world_info['name']}.json", "wt")
+    f_out = open(f"cache/worlds/{world_info['name']}.json", "wt")
 
     if parse_result == False:
         f_out.write(orjson.dumps(world_info, default=common.json_default_func,  option=orjson.OPT_INDENT_2).decode("utf-8"))

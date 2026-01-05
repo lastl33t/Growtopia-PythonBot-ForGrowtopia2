@@ -2,8 +2,8 @@ import orjson
 from typing import List
 import common
 
-f = open("./cache/items.dat", "rb")
-f_out = open("./cache/parsed_data.json", "wt")
+f = open("cache/items.dat", "rb")
+f_out = open("cache/parsed_data.json", "wt")
 
 def get_str() -> str:
     return common.get_str(f)
