@@ -5,6 +5,9 @@ enet/*.dll
 enet/*.dylib
 enet/*.exp
 
+cache/*.json
+cache/worlds/*.json
+
 # Environments
 .env
 venv/
