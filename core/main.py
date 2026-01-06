@@ -7,8 +7,8 @@ if enet_initialize() != 0:
 
 if __name__ == "__main__":
     print("Enter your legacy account:")
-    username = input("Enter username: ")
-    password = input("Enter password: ")
+    username = input("Input your GrowID: ")
+    password = input("Input your password: ")
 
     bot = Bot(login_method=LoginMethod.LEGACY, username=username, password=password)
     bot.connect()

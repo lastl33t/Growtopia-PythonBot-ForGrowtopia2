@@ -11,28 +11,43 @@ This is a Python-based bot for the game **Growtopia** designed to automate certa
 ## Requirements
 
 - C/C++ compiler (Clang, etc) ( Change CXX in Makefile if you use other than clang)
-- Python 3.12
+- Python 3.12+
 - Make
-
-## Install Dependencies
-
-Generate enet shared lib and install the required libraries:
-```shell
-$ make
-$ make dev
-```
 
 ## Usage
 
 1. Clone the repository:
 ```shell
 $ git clone https://github.com/Freennzzy/Growtopia-PythonBot.git
-```
-2. Navigate to the project directory:
-```shell
 $ cd Growtopia-PythonBot
 ```
+2. Generate enet shared lib and install the required libraries:
+```shell
+$ make
+```
 3. Run the bot:
+```shell
+$ python -m core.main
+```
+
+## Running on Termux (Android)
+
+1. Install Termux from [F-Droid](https://f-droid.org/id/packages/com.termux/).
+2. Install required packages:
+```shell
+$ pkg update && pkg upgrade -y
+$ pkg install python clang make git rust -y
+```
+3. Clone the repository:
+```shell
+$ git clone https://github.com/Freennzzy/Growtopia-PythonBot.git
+$ cd Growtopia-PythonBot
+```
+4. Generate enet shared lib and install the required libraries:
+```shell
+$ make
+```
+5. Run the bot:
 ```shell
 $ python -m core.main
 ```
