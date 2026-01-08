@@ -1,35 +1,42 @@
+from dataclasses import dataclass, field
 from core.utils import PacketReader
 
+@dataclass(slots=True)
 class InventoryItem:
-    def __init__(self, item_id: int, amount: int, flag: int):
-        self.id = item_id
-        self.amount = amount
-        self.flag = flag
-
-    def __repr__(self):
-        return f"InventoryItem(id={self.id}, amount={self.amount}, flag={self.flag})"
+    id: int
+    amount: int
+    flag: int
 
 class Inventory:
-    def __init__(self):
+    def __init__(self) -> None:
         self.size: int = 0
         self.item_count: int = 0
-        self.items: dict[int, InventoryItem] = {}
+        self.items: dict[int, InventoryItem] = field(default_factory=dict)
 
-    def parse(self, data: bytes):
+    def __iter__(self):
+        return iter(self.items.values())
+
+    def parse(self, data: bytes) -> None:
         self.reset()
-        r = PacketReader(data)
+        reader = PacketReader(data)
 
-        r.skip(1)
+        reader.skip(1)
 
-        self.size = r.u32()
-        self.item_count = r.u16()
+        self.size = reader.u32()
+        self.item_count = reader.u16()
+
         for _ in range(self.item_count):
-            item_id = r.u16()
-            amount = r.u8()
-            flag = r.u8()
-            self.items[item_id] = InventoryItem(item_id, amount, flag)
+            item_id = reader.u16()
+            amount = reader.u8()
+            flag = reader.u8()
 
-    def reset(self):
+            self.items[item_id] = InventoryItem(
+                id=item_id,
+                amount=amount,
+                flag=flag
+            )
+
+    def reset(self) -> None:
         self.size = 0
         self.item_count = 0
         self.items.clear()

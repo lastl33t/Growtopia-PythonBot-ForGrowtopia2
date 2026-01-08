@@ -1,4 +1,3 @@
-from collections import deque
 import ctypes
 from core.ffi import enet_host_create, enet_host_use_crc32, enet_host_use_new_packet, enet_host_compress_with_range_coder, ENetAddress, enet_address_set_host, enet_host_connect, enet_host_service, ENetEvent, ENetEventType, ENetPacket, enet_packet_create, enet_peer_disconnect, enet_peer_send, enet_packet_destroy
 from .inventory import Inventory
