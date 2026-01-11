@@ -28,7 +28,7 @@ def fetch_server_data(protocol, version, alternate=False):
         print(f"Request failed: {e}")
         time.sleep(1)
         return fetch_server_data(protocol, version, not alternate)
-    
+
 def parse_server_data(data):
     lines = data.split('\n')
     result = {}

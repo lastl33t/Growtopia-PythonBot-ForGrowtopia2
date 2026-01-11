@@ -1,75 +1,11 @@
 from dataclasses import dataclass, field
-from enum import IntFlag
 from typing import Optional
 
+from core.entities.enums import ItemFlag
+from core.entities.struct import Item
 from core.utils import PacketReader
 
 SECRET = b"PBG892FXX982ABC*"
-
-class ItemFlag(IntFlag):
-    FLIPPABLE       = 0x1
-    EDITABLE        = 0x2
-    SEEDLESS        = 0x4
-    PERMANENT       = 0x8
-    DROPLESS        = 0x10
-    NO_SELF         = 0x20
-    NO_SHADOW       = 0x40
-    WORLD_LOCKED    = 0x80
-    BETA            = 0x100
-    AUTO_PICKUP     = 0x200
-    MOD_FLAG        = 0x400
-    RANDOM_GROW     = 0x800
-    PUBLIC          = 0x1000
-    FOREGROUND      = 0x2000
-    HOLIDAY         = 0x4000
-    UNTRADEABLE     = 0x8000
-
-    @classmethod
-    def from_bits(cls, bits: int) -> "ItemFlag":
-        return cls(bits)
-
-@dataclass
-class Item:
-    id: int = 0
-    flags: ItemFlag = ItemFlag(0)
-    action_type: int = 0
-    material: int = 0
-    name: str = ""
-    texture_file_name: str = ""
-    texture_hash: int = 0
-    cooking_ingredient: int = 0
-    visual_effect: int = 0
-    texture_x: int = 0
-    texture_y: int = 0
-    render_type: int = 0
-    is_stripey_wallpaper: int = 0
-    collision_type: int = 0
-    block_health: int = 0
-    drop_chance: int = 0
-    clothing_type: int = 0
-    rarity: int = 0
-    max_item: int = 0
-    file_name: str = ""
-    file_hash: int = 0
-    audio_volume: int = 0
-    pet_name: str = ""
-    pet_prefix: str = ""
-    pet_suffix: str = ""
-    pet_ability: str = ""
-    seed_base_sprite: int = 0
-    seed_overlay_sprite: int = 0
-    tree_base_sprite: int = 0
-    tree_overlay_sprite: int = 0
-    base_color: int = 0
-    overlay_color: int = 0
-    ingredient: int = 0
-    grow_time: int = 0
-    is_rayman: int = 0
-    extra_options: str = ""
-    texture_path_2: str = ""
-    extra_option2: str = ""
-    punch_option: str = ""
-    description: str = ""
 
 @dataclass(slots=True)
 class ItemDatabase:

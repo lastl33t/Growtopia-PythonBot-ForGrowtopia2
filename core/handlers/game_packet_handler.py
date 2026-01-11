@@ -1,6 +1,6 @@
 import ctypes
 from .variant_handler import VariantHandler
-from core.enums import NetGamePacket
+from core.entities.enums import NetGamePacket
 from core.ffi import TankPacket
 from parser import parse_map_data
 

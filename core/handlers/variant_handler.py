@@ -1,4 +1,4 @@
-from core.enums import NetMessage
+from core.entities.enums import NetMessage
 from core.utils import VariantList
 from core.ffi import enet_peer_disconnect
 

@@ -1,6 +1,6 @@
 import ctypes
 from .game_packet_handler import GamePacketHandler
-from core.enums import NetMessage
+from core.entities.enums import NetMessage
 from core.utils import read_u32
 from core.ffi import enet_peer_disconnect
 

@@ -11,7 +11,7 @@ class Inventory:
     def __init__(self) -> None:
         self.size: int = 0
         self.item_count: int = 0
-        self.items: dict[int, InventoryItem] = field(default_factory=dict)
+        self.items: dict[int, InventoryItem] = {}
 
     def __iter__(self):
         return iter(self.items.values())

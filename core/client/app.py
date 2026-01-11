@@ -4,7 +4,7 @@ from .inventory import Inventory
 from .login_info import LoginInfo
 from .login import fetch_login_urls, login_via_growid
 from .server_data import fetch_server_data
-from core.enums import LoginMethod, NetMessage
+from core.entities.enums import LoginMethod, NetMessage
 from core.handlers import NetMessageHandler
 
 class Bot:
