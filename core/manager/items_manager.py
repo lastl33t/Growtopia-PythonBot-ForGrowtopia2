@@ -17,12 +17,8 @@ class ItemDatabase:
     def add_item(self, item: Item):
         self.items[item.id] = item
 
-    def get_item_as_ref(self, id: int) -> Optional[Item]:
-        return self.items.get(id)
-
     def get_item(self, id: int) -> Optional[Item]:
-        item = self.items.get(id)
-        return item if item is None else item
+        return self.items.get(id)
 
 def load_from_memory(data: bytes) -> ItemDatabase:
     reader = PacketReader(data)
@@ -66,6 +62,7 @@ def read_item(reader: PacketReader, version: int) -> Item:
     item.drop_chance = reader.u32()
     item.clothing_type = reader.u8()
     item.rarity = reader.u16()
+    item.level_required = level_required(item.rarity)
     item.max_item = reader.u8()
     item.file_name = read_str(reader)
     item.file_hash = reader.u32()
@@ -133,3 +130,8 @@ def decrypt_item_name(reader: PacketReader, item_id: int) -> str:
         input_char = reader.u8()
         chars.append(chr(input_char ^ secret_char))
     return "".join(chars)
+
+def level_required(rarity: int) -> int:
+    if 1 <= rarity <= 99:
+        return min(20, (rarity - 1) // 5 + 3)
+    return 0

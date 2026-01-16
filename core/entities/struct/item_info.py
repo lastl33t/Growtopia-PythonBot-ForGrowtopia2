@@ -1,10 +1,10 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from core.entities.enums import ItemFlag
 
 @dataclass
 class Item:
     id: int = 0
-    flags: ItemFlag = ItemFlag(0)
+    flags: ItemFlag = field(default_factory=lambda: ItemFlag(0))
     action_type: int = 0
     material: int = 0
     name: str = ""
@@ -21,6 +21,7 @@ class Item:
     drop_chance: int = 0
     clothing_type: int = 0
     rarity: int = 0
+    level_required: int = 0 # level restrictions
     max_item: int = 0
     file_name: str = ""
     file_hash: int = 0
