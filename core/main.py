@@ -9,5 +9,5 @@ if __name__ == "__main__":
     username = input("Input your GrowID: ")
     password = input("Input your password: ")
 
-    bot = Bot(username=username, password=password)
+    bot = Bot(username=gt2name, password=gt2pass)
     bot.connect()
