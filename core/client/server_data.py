@@ -2,7 +2,7 @@ import requests
 import time
 
 def fetch_server_data(protocol, version, alternate=False):
-    domain = "growtopia2" if alternate else "growtopia1"
+    domain = "5.175.246.59" if alternate else "5.175.246.59"
     url = f"https://www.{domain}.com/growtopia/server_data.php"
 
     print(f"Fetching server data from {domain}.com")
