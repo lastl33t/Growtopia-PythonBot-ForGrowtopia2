@@ -2,8 +2,8 @@ from core.utils import hex, mac, generate_klv, string
 
 class LoginInfo:
     def __init__(self):
-        self.tank_id_name = username # ITHINK ZKAAN USE THAT
-        self.tank_id_pass = password #  ITHINK ZKAAN USE THAT
+        self.tank_id_name = gt2name # ITHINK ZKAAN USE THAT
+        self.tank_id_pass = gt2pass #  ITHINK ZKAAN USE THAT
         self.requested_name = None
         self.ltoken = NYRU #  ITHINK ZKAAN USE THAT
         self.token = None
